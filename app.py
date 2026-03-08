@@ -3,20 +3,20 @@ import pandas as pd
 import numpy as np
 from io import BytesIO
 
-st.set_page_config(page_title="🕵️‍♂️ Insurance Fraud Detection", layout="wide", page_icon="🕵️")
+st.set_page_config(page_title="🕵 Insurance Fraud Detection", layout="wide", page_icon="🕵️")
 
-st.title("🕵️‍♂️ Insurance Fraud Analysis Dashboard")
+st.title("Insurance Fraud Analysis Dashboard")
 st.markdown("**Upload CSV → Instant Fraud + True Cases → Professional Report**")
 
-# 🔥 FILE UPLOAD
-uploaded_file = st.file_uploader("📁 Upload Insurance Fraud CSV", type="csv")
+#  FILE UPLOAD
+uploaded_file = st.file_uploader(" Upload Insurance Fraud CSV", type="csv")
 
 if uploaded_file is not None:
     # Read CSV
     df = pd.read_csv(uploaded_file)
-    st.success(f"✅ Loaded **{df.shape[0]:,} claims** × **{df.shape[1]} features**")
+    st.success(f" Loaded **{df.shape[0]:,} claims** × **{df.shape[1]} features**")
 
-    # 🔥 BULLETPROOF FRAUD DETECTION
+    #  BULLETPROOF FRAUD DETECTION
     fraud_col = None
     fraud_patterns = ['fraud', 'fraud_reported', 'is_fraud', 'fraudulent']
 
@@ -41,7 +41,7 @@ if uploaded_file is not None:
 
     fraud_rate = (num_fraud / len(df)) * 100
 
-    # 🔥 BEAUTIFUL DASHBOARD METRICS
+    #  DASHBOARD METRICS
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     with col1:
@@ -53,15 +53,15 @@ if uploaded_file is not None:
     with col4:
         st.metric("📈 Fraud Rate", f"{fraud_rate:.1f}%")
     with col5:
-        st.metric("🔢 Features", len(df.columns))
+        st.metric(" Features", len(df.columns))
     with col6:
         # Financial metrics
         money_cols = [col for col in df.columns if any(x in col.lower() for x in ['premium', 'claim', 'amount'])]
         if money_cols:
             avg_money = pd.to_numeric(df[money_cols].sum(axis=1), errors='coerce').mean()
-            st.metric("💰 Avg Claim", f"${avg_money:,.0f}")
+            st.metric(" Avg Claim", f"${avg_money:,.0f}")
 
-    # 🔥 DATA PREVIEW WITH COLOR CODING (FIXED!)
+    # DATA PREVIEW WITH COLOR CODING (FIXED!)
     st.subheader("📋 Dataset Preview (🔴 Fraud Highlighted)")
 
     if fraud_col:
@@ -74,7 +74,7 @@ if uploaded_file is not None:
     else:
         st.dataframe(df.head(20), use_container_width=True, height=400)
 
-    # 🔥 DOWNLOAD REPORTS
+    #  DOWNLOAD REPORTS
     col1, col2 = st.columns(2)
 
     with col1:
@@ -86,7 +86,7 @@ if uploaded_file is not None:
         report_df = pd.DataFrame(report_data)
         csv_report = report_df.to_csv(index=False)
         st.download_button(
-            label="📥 Download Summary Report",
+            label=" Download Summary Report",
             data=csv_report,
             file_name='fraud_summary_report.csv',
             mime='text/csv'
@@ -102,8 +102,8 @@ if uploaded_file is not None:
             mime='text/csv'
         )
 
-    # 🔥 COLUMN INFO
-    st.subheader("📊 Dataset Info")
+    #  COLUMN INFO
+    st.subheader(" Dataset Info")
     st.json({
         'Total Rows': len(df),
         'Fraud Column': fraud_col,
@@ -114,8 +114,8 @@ if uploaded_file is not None:
 else:
     st.info("👆 **Upload your `insuranceFraud.csv`** to analyze fraud cases!")
 
-    # 🔥 PERFECT DEMO TABLE (ERROR FIXED!)
-    st.subheader("🎯 Expected Results")
+    #  DEMO TABLE
+    st.subheader(" Expected Results")
     demo_data = pd.DataFrame({
         'policy_id': ['POL001', 'POL002', 'POL003', 'POL004'],
         'months_as_customer': [32, 28, 45, 19],
