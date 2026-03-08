@@ -1,0 +1,49 @@
+prediction,probability,error
+0,0.5,"The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- incident_date
+- insured_education_level
+- insured_hobbies
+- insured_occupation
+- insured_relationship
+- ...
+Feature names seen at fit time, yet now missing:
+- auto_year
+- bodily_injuries
+- incident_hour_of_the_day
+- injury_claim
+- number_of_vehicles_involved
+- ...
+"
+0,0.5,"The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- incident_date
+- insured_education_level
+- insured_hobbies
+- insured_occupation
+- insured_relationship
+- ...
+Feature names seen at fit time, yet now missing:
+- auto_year
+- bodily_injuries
+- incident_hour_of_the_day
+- injury_claim
+- number_of_vehicles_involved
+- ...
+"
+0,0.5,"The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- incident_date
+- insured_education_level
+- insured_hobbies
+- insured_occupation
+- insured_relationship
+- ...
+Feature names seen at fit time, yet now missing:
+- auto_year
+- bodily_injuries
+- incident_hour_of_the_day
+- injury_claim
+- number_of_vehicles_involved
+- ...
+"
